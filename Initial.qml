@@ -3,8 +3,8 @@ import QtQuick.Controls 2.15
 
 Window {
     visible: true
-    width: 600
-    height: 400
+    width: 800
+    height: 600
     title: "Simple Web Browser"
     id: root
 
@@ -21,7 +21,9 @@ Window {
             spacing: 50
 
             Text {
-                text: "Let me teach you the Internet, senpai~\n\n\tNyaa\n\n\t\t>_<"
+                text: "Let me teach you the Internet, senpai~"
+                    + "\n\n\n\tNyaa"
+                    + "\n\n\t\t>_<"
                 font.bold: true
                 font.pointSize: 20
                 wrapMode: Text.WordWrap
@@ -78,7 +80,9 @@ Window {
             spacing: 50
 
             Text {
-                text: "Internet is full of kawaii things!\n\nBut also dangerous things!"
+                text: "Internet is full of kawaii things!"
+                    + "\n\nBut also dangerous things!"
+                    + "\n\nBe careful, senpai~"
                 font.bold: true
                 font.pointSize: 20
                 wrapMode: Text.WordWrap
