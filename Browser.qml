@@ -152,4 +152,19 @@ Window {
         sequence: "Ctrl+T"
         onActivated: addNewTab()
     }
+
+    Shortcut {
+        sequence: "Ctrl+W"
+        onActivated: {
+            if (tabList.length > 1) {
+                tabList.splice(currentTab, 1)
+                currentTab = Math.min(currentTab, tabList.length - 1)
+                webViewContainer.children = [tabList[currentTab]]
+            }
+            else {
+                tabList = []
+                addNewTab()
+            }
+        }
+    }
 }
