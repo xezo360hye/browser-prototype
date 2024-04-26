@@ -24,7 +24,7 @@ Window {
     }
 
     function addNewTab() {
-        var newTabWebView = webViewComponent.createObject(root)
+        var newTabWebView = webViewComponent.createObject(webViewContainer)
         newTabWebView.url = "https://ddg.gg"
         tabList.push(newTabWebView)
         webViewContainer.children = [newTabWebView]
@@ -48,6 +48,7 @@ Window {
         TextField {
             id: searchInput
             placeholderText: "Enter URL"
+            text: getCurrentTab() ? getCurrentTab().url : ""
             onAccepted: getCurrentTab().url = prependHttp(searchInput.text)
             width: parent.width - backButton.width - forwardButton.width - 50
             anchors.verticalCenter: parent.verticalCenter
@@ -114,8 +115,9 @@ Window {
 
     Item {
         id: webViewContainer
+        height: getWebViewHeight()
         anchors {
-            top: tabs.bottom
+            top: (tabs.visible ? tabs.bottom : root.top)
             left: parent.left
             right: parent.right
             bottom: parent.bottom
@@ -136,7 +138,7 @@ Window {
         onActivated: {
             searchBar.visible = !searchBar.visible;
             tabs.visible = !tabs.visible;
-            webView.height = getWebViewHeight();
+            webViewContainer.height = getWebViewHeight()
         }
     }
 
